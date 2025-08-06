@@ -5,6 +5,10 @@ from models.User import User
 from models import db,jwt
 from controllers.login_controller import login_bp
 from controllers.signup_controller import user_bp
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
+migrate = Migrate()
 
 def create_app():
     app=Flask(__name__)
@@ -14,7 +18,7 @@ def create_app():
     CORS(app,
          origins=['https://localhost:5173'],
          methods=['GET','POST','DELETE','OPTIONS'],
-         allow_headers=['Content-Type','Authorozation'],
+         allow_headers=['Content-Type', 'Authorization'],
          supports_credentials=True)
     
     db.init_app(app)
@@ -22,7 +26,7 @@ def create_app():
     #FOr debuging purposes 
     print('JWT Manager initiased')
 
-    app.register_blueprint(user_bp,url_prefix='/auth')
+    app.register_blueprint(user_bp)
     app.register_blueprint(login_bp,url_prefix='/login')
 
     with app.app_context():
