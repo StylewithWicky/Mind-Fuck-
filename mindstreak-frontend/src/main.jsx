@@ -3,10 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./components/Landingpage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import "./Css/Landingpage.css"; // Global style
+import "./css/Landingpage.css"; // Global style
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -1,0 +1,62 @@
+.glitch-text {
+  position: relative;
+  color: white;
+  font-weight: bold;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.glitch-text::before {
+  animation: glitchTop 2s infinite linear;
+  color: #f0f;
+  top: -2px;
+}
+
+.glitch-text::after {
+  animation: glitchBottom 1.5s infinite linear;
+  color: #0ff;
+  top: 2px;
+}
+
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  5% {
+    clip: rect(0, 900px, 50px, 0);
+  }
+  10% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  15% {
+    clip: rect(20px, 900px, 30px, 0);
+  }
+  20% {
+    clip: rect(0, 900px, 0, 0);
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  5% {
+    clip: rect(30px, 900px, 40px, 0);
+  }
+  10% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  15% {
+    clip: rect(10px, 900px, 60px, 0);
+  }
+  20% {
+    clip: rect(0, 900px, 0, 0);
+  }
+}
